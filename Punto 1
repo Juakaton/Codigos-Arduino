@@ -1,0 +1,19 @@
+int Seconds1=0;
+int Seconds2=0;
+int Time;
+
+void setup() {
+  Serial.begin(9600);
+  Seconds1 = millis();
+}
+
+void loop() {
+  Seconds2 = millis();
+  if (Seconds2 > (Seconds1 +1000)) {
+    Seconds1 = millis();
+    Time = Seconds1/1000;
+    Serial.print("han pasado ");
+    Serial.print(Time);
+    Serial.println(" segundos");
+  }
+}
