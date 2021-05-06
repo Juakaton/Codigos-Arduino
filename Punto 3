@@ -1,0 +1,20 @@
+int Led=5;
+long int Timer=2000;
+unsigned long Tiempo1=0;
+unsigned long Tiempo2=0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(Led, OUTPUT);
+}
+
+void loop() {
+  Tiempo1 = millis();
+  if ((Tiempo1 - Tiempo2) > Timer) {
+    Tiempo2 = Tiempo1;
+    digitalWrite(Led, HIGH);
+  } else {
+    digitalWrite(Led, LOW);
+  }
+  delay(2000);
+}
