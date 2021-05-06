@@ -1,0 +1,41 @@
+unsigned long Tiempo1 = 0;
+unsigned long Tiempo2 = 0;
+unsigned long Tiempo3 = 0;
+unsigned long Tiempo4 = 0;
+int LedAmarillo = 5;
+int LedVerde = 6;
+float Timer = 4000;
+float Timer2 = 1000;
+
+void setup() {
+  pinMode(LedAmarillo, OUTPUT);
+  pinMode(LedVerde, OUTPUT);
+}
+
+void loop() {
+  Tiempo1 = millis();
+  Tiempo3 = millis();
+  CodeLedAmarillo();
+  CodeLedVerde();
+}
+void CodeLedAmarillo () 
+{
+
+  if (Tiempo1 - Tiempo2 >= 2000 && Tiempo1 - Tiempo2 <= 4000) {
+    Tiempo2 = Tiempo1;  
+    digitalWrite(LedAmarillo, HIGH);
+  } else {  
+    digitalWrite(LedAmarillo, LOW);
+  }
+}
+
+void CodeLedVerde ()
+{
+
+  if (Tiempo3 - Tiempo4 >= 1000 && Tiempo1 - Tiempo2 <= 3000) {
+    Tiempo4 = Tiempo3;  
+    digitalWrite(LedVerde, HIGH);
+  } else {  
+    digitalWrite(LedVerde, LOW);
+  }
+}
